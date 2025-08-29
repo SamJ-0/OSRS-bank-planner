@@ -1,10 +1,13 @@
-import ItemList from "./ItemList.jsx"
+import SearchBar from "./components/SearchBar"
 
 function App() {
 
   return (
     <>
-    <ItemList/>
+    <section className="searchArea">
+      <SearchBar/>
+    </section>
+    <section className="gridArea"></section>
     </>
   )
 }

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 function ItemList() {
-    const [items, setItem] = useState([]);
+    const [items, setItems] = useState([]);
 
      useEffect(() => {
         callAPI();
@@ -16,7 +16,8 @@ function ItemList() {
         }
         const result = await response.json();
         console.log(result.items);
-        setItem(result.items);
+        setItems(result.items);
+
     } catch (error) {
         console.log(error);
     }
@@ -24,10 +25,9 @@ function ItemList() {
 }
     return (
         <>
-        <div>{items.map((item) => {
-            return <div key={item.id}>{item.name}</div>
-        })}</div>
+
         </>
     );
 }
+
 export default ItemList
