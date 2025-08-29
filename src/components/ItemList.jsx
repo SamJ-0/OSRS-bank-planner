@@ -25,7 +25,15 @@ function ItemList() {
 }
     return (
         <>
+        <div id={items[8].id} className="itemContainer">
+        <img src={items[8].icon} alt="Abyssal whip icon" />
+        <p>{items[8].name}</p>
+        </div>
 
+        <div id={items[0].id} className="itemContainer">
+        <img src={items[0].icon} alt="Abyssal whip icon" />
+        <p>{items[0].name}</p>
+        </div>
         </>
     );
 }

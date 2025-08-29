@@ -1,6 +1,7 @@
 :root {
   --main-background:#1c262b;
   --secondary-background:#36434A;
+  --secondary-hover:#425057;
   --yellow-hover:#E3A750;
 }
 
@@ -42,7 +43,7 @@ body {
 
 .searchBtn {
   position: absolute;
-  right: 1px;
+  right: 0.25px;
   height: 2.25rem;
   width: 2.25rem;
 
@@ -54,6 +55,31 @@ body {
 .searchBtn:hover {
   cursor: pointer;
   background-color: var(--yellow-hover);
+}
+
+.gridArea {
+  width: 100%;
+  height: max-content;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.2rem;
+}
+
+.gridRow {
+  display: grid;
+  grid-template-columns: repeat(8, 0.25fr);
+  gap: 0.2rem;
+}
+
+.slot {
+  width: 100px;
+  height: 100px;
+  background-color: var(--secondary-background);
+}
+
+.slot:hover {
+    background-color: var(--secondary-hover);
 }
 
 .itemContainer {
@@ -72,4 +98,8 @@ body {
 
 .itemContainer p {
   line-height: 1rem;
+}
+
+footer {
+  height: 60px;
 }
