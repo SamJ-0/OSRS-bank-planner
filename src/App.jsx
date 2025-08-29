@@ -1,11 +1,13 @@
 import SearchBar from "./components/SearchBar"
 import Grid from "./components/Grid"
-import ItemList from "./components/ItemList"
 
 function App() {
 
   return (
     <>
+          <div className="titleContainer">
+              <h1 className="title"><span>OSRS</span>Bank planner</h1>
+      </div>
     <section className="searchArea">
       <SearchBar/>
     </section>
