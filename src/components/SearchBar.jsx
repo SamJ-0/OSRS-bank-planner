@@ -1,6 +1,8 @@
 import { Search } from "lucide-react";
+import ItemList from "./ItemList";
 
 function SearchBar() {
+
     return (
         <>
         <div className="searchContainer">
