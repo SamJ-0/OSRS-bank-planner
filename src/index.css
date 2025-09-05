@@ -52,6 +52,8 @@ body {
 
 .searchWrapper {
   position: relative;
+  display: flex;
+  align-items: center;
 }
 
 .searchBar {
@@ -72,18 +74,12 @@ body {
 
 .searchBtn {
   position: absolute;
-  right: 0.25px;
-  height: 2.25rem;
-  width: 2.25rem;
+  right: 10px;
+  bottom: 2px;
 
   border: none;
   border-radius: 0 6px 6px 0;
   background-color: transparent;
-}
-
-.searchBtn:hover {
-  cursor: pointer;
-  background-color: var(--yellow-hover);
 }
 
 .itemContainer {

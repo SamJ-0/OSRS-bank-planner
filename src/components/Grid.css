@@ -4,12 +4,15 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-top: 20px;
+}
+
+.gridContainer {
+  display: grid;
 }
 
 .gridRow {
-  max-width: 825px;
   display: grid;
-
   gap: 0.25rem;
 }
 
@@ -20,20 +23,3 @@
 .bankTile:hover {
     background-color: var(--secondary-hover);
 }
-
-.bankTabContainer {
-  height: 45px;
-  width: 825px;
-  display: flex;
-  align-items: center;
-  margin-bottom: 0.5rem;
-  
-  border: none;
-  border-radius: 6px;
-  background-color: #161d23;
-}
-
-/* .bankTabContainer .bankTile {
-  border: none;
-  border-radius: 6px 6px 0 0;
-} */

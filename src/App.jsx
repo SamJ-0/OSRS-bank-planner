@@ -1,6 +1,5 @@
 import SearchBar from "./components/SearchBar"
 import Grid from "./components/Grid"
-import BankTabs from "./components/BankTabs"
 
 function App() {
 
@@ -11,10 +10,9 @@ function App() {
       </div>
     <section className="searchArea">
       <SearchBar/>
-      <BankTabs />
     </section>
     <section className="gridArea">
-      <Grid height="100px" width="100px" columns={8} numOfTiles={56}/>
+      <Grid height="100px" width="90px" column={8} row={56}/>
     </section>
     <section><footer></footer></section>
     </>

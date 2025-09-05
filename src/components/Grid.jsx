@@ -1,19 +1,29 @@
+import GridTile from "./GridTile";
 import "./Grid.css"
 
-function Grid({height, width, columns, numOfTiles}) {
+function Grid({height, width, column, row, item}) {
+        let gridColumns = Array(column).fill().map((x,i) => i+1);
+        let tileCount = Array(row).fill().map((x, i) => i+1);
 
-        let tileCount = numOfTiles;
-        let mainGrid = [];
+        const tilePosition = tileCount.map((tile, i) => {
+            let x;
 
-    for(let i = 0; i < tileCount; i++) {
-        mainGrid.push(<div style={{height, width}} className="bankTile" key={i}></div>);
-    }
-    
+            if(tile % gridColumns.length) {
+                let moduloResult = tile % gridColumns.length;
+                x = moduloResult;
+            } else if (tile % gridColumns.length === 0) {
+                x = gridColumns.length;
+            }
+
+            return <GridTile height={height} width={width} x={x} y={tile} key={tile} item={item} count={tile}/>
+        })
+
     return (
         <div className="gridContainer">
-            <div style={{gridTemplateColumns:`repeat(${columns}, ${width})`}} className="gridRow">{mainGrid}</div>
+            <div className="gridRow" style={{gridTemplateColumns:`repeat(${8}, ${width})`}}>
+                {tilePosition}
+            </div>
         </div>
     );
 }
-
 export default Grid
