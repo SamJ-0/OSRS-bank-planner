@@ -12,7 +12,7 @@ function App() {
       <SearchBar/>
     </section>
     <section className="gridArea">
-      <Grid height="100px" width="90px" column={8} row={56}/>
+      <Grid height="100px" width="90px" bankSlots={56}/>
     </section>
     <section><footer></footer></section>
     </>

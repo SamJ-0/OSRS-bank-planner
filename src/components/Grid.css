@@ -1,19 +1,14 @@
 .gridArea {
-  max-width: 100%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  margin-top: 20px;
-}
+  align-items: center;
 
-.gridContainer {
-  display: grid;
+  margin-top: 20px;
 }
 
 .gridRow {
   display: grid;
-  gap: 0.25rem;
+  gap: 0.2rem;
 }
 
 .bankTile {
@@ -22,4 +17,39 @@
 
 .bankTile:hover {
     background-color: var(--secondary-hover);
+}
+
+.bankSlotContainer {
+  height: 100%;
+  width: 100%;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+
+  position: relative;
+}
+
+.sprite {
+  height: 4rem;
+  width: 4rem;
+}
+
+.itemName {
+  color: #fafaface;
+  font-size: 0.75rem;
+  text-align: center;
+  font-weight: 300;
+  font-family: 'Inter', sans-serif;
+}
+
+.removeItem {
+  position: absolute;
+  top: 2px;
+  right: 3px;
+}
+
+.removeItem:hover {
+  color: #fafafa70;
 }
