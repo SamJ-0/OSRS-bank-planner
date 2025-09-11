@@ -38,7 +38,7 @@
 
 .itemName {
   color: #fafaface;
-  font-size: 0.75rem;
+  font-size: 0.65rem;
   text-align: center;
   font-weight: 300;
   font-family: 'Inter', sans-serif;
@@ -48,8 +48,4 @@
   position: absolute;
   top: 2px;
   right: 3px;
-}
-
-.removeItem:hover {
-  color: #fafafa70;
 }

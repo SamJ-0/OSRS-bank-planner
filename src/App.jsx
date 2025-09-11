@@ -1,5 +1,5 @@
-import SearchBar from "./components/SearchBar"
-import Grid from "./components/Grid"
+import SearchBar from "./components/Search/SearchBar"
+import Grid from "./components/Grid/Grid"
 
 function App() {
 
