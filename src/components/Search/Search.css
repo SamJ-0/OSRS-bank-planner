@@ -16,6 +16,7 @@
 .searchWrapper {
   position: relative;
   display: flex;
+  flex-direction: column;
   align-items: center;
 }
 
@@ -43,4 +44,34 @@
   border: none;
   border-radius: 0 6px 6px 0;
   background-color: transparent;
+}
+
+.searchBar,
+.searchBar:focus,
+.searchBtn {
+    z-index: 99;
+}
+
+.dropDownContainer {
+  width: 18rem;
+  max-height: 12rem;
+  color: #fafaface;
+  font-weight: 300;
+  background-color: var(--main-background);
+  border: 2px solid var(--secondary-background);
+  border-radius: 6px;
+
+  position: absolute;
+  top: 2.2rem;
+  z-index: 1;
+}
+
+.dropDownList li {
+    list-style: none;
+    padding: 10px;
+}
+
+.dropDownList li:hover {
+    background-color: #212c32;
+    cursor: pointer;
 }

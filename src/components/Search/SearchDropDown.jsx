@@ -1,14 +1,21 @@
-function SearchDropdown({names}) {
+function SearchDropdown({names, search}) {
     
     const mappedItemNames = names.map((item) => {
-        return <li>{item.name}</li>;
+        return <li key={item.id}>{item.name}</li>;
     });
+
 return (
 <>
-<ul>
-    {mappedItemNames}
-</ul>
-</>
+    {search === "" ? 
+    null
+    : 
+    <div className="dropDownContainer">
+    <ul className="dropDownList">
+        {mappedItemNames}
+    </ul>
+    </div>
+    }
+    </>
 );
 }
 

@@ -1,6 +1,6 @@
 const testItems = [
   {
-    icon: "https://secure.runescape.com/m=itemdb_oldschool/1757326625008_obj_sprite.gif?id=4151",
+    icon: "https://secure.runescape.com/m=itemdb_oldschool/1757500222381_obj_sprite.gif?id=4151",
     icon_large:
       "https://secure.runescape.com/m=itemdb_oldschool/1757500222381_obj_big.gif?id=4151",
     id: "4151",
@@ -8,7 +8,7 @@ const testItems = [
     description: "A weapon from the Abyss",
   },
   {
-    icon: "https://secure.runescape.com/m=itemdb_oldschool/1757326625008_obj_sprite.gif?id=10392",
+    icon: "https://secure.runescape.com/m=itemdb_oldschool/1757500222381_obj_sprite.gif?id=10392",
     icon_large:
       "https://secure.runescape.com/m=itemdb_oldschool/1757500222381_obj_big.gif?id=10392",
     id: "10392",
