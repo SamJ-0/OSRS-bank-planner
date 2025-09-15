@@ -1,18 +1,22 @@
 function SearchDropdown({searchValue, searchResults}) {
 
-        const itemNames = searchResults.map((item) => {
-        return <li key={item.id}>{item.name}</li>;
-    });
+    function handleMouseDown(event) {
+        event.preventDefault();
+    };
 
-    const handleClick = () => {
-        console.log(itemNames.textContent);
-    }
+    const handleClick = (e) => {
+        console.log(e.target.textContent);
+    };
+
+    const itemNames = searchResults.map((item) => {
+        return <li key={item.id} onMouseDown={handleMouseDown} onClick={handleClick}>{item.name}</li>;
+    });
 
 return (
 <>
     {searchValue != "" ? 
     <div className="dropDownContainer">
-    <ul className="dropDownList" onClick={handleClick}>
+    <ul className="dropDownList">
         {itemNames}
     </ul>
     </div>
@@ -24,15 +28,3 @@ return (
 }
 
 export default SearchDropdown
-
-{/* <>
-    {searchResults === "" ? 
-    null
-    : 
-    <div className="dropDownContainer">
-    <ul className="dropDownList">
-        {itemNames}
-    </ul>
-    </div>
-    }
-    </> */}
