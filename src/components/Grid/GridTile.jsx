@@ -2,14 +2,13 @@ import { useState } from "react";
 import "./Grid.css";
 import { X } from "lucide-react";
 
-function GridTile({ tileState }) {
+function GridTile({ tileState, findEmptySlot }) {
 
   const [selectedTile, setSelectedTile] = useState();
 
-  function handleClick() {
-    console.log(tileState.id);
+  const handleClick = () => {
     setSelectedTile(tileState.id);
-  }
+  };
 
   return (
 

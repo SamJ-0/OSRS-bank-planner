@@ -1,4 +1,4 @@
-import SearchBar from "./components/Search/SearchBar"
+import Search from "./components/Search/Search"
 import Grid from "./components/Grid/Grid"
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
         <h1 className="title"><span>OSRS</span>Bank planner</h1>
       </div>
     <section className="searchArea">
-      <SearchBar/>
+      <Search/>
     </section>
     <section className="gridArea">
       <Grid height="100px" width="90px" bankSlots={56}/>

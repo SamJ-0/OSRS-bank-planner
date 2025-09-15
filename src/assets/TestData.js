@@ -1,16 +1,16 @@
 const testItems = [
   {
-    icon: "https://secure.runescape.com/m=itemdb_oldschool/1757500222381_obj_sprite.gif?id=4151",
+    icon: "https://secure.runescape.com/m=itemdb_oldschool/1757933262993_obj_sprite.gif?id=4151",
     icon_large:
-      "https://secure.runescape.com/m=itemdb_oldschool/1757500222381_obj_big.gif?id=4151",
+      "https://secure.runescape.com/m=itemdb_oldschool/1757933262993_obj_big.gif?id=4151",
     id: "4151",
     name: "Abyssal whip",
     description: "A weapon from the Abyss",
   },
   {
-    icon: "https://secure.runescape.com/m=itemdb_oldschool/1757500222381_obj_sprite.gif?id=10392",
+    icon: "https://secure.runescape.com/m=itemdb_oldschool/1757933262993_obj_sprite.gif?id=10392",
     icon_large:
-      "https://secure.runescape.com/m=itemdb_oldschool/1757500222381_obj_big.gif?id=10392",
+      "https://secure.runescape.com/m=itemdb_oldschool/1757933262993_obj_big.gif?id=10392",
     id: "10392",
     name: "A powdered wig",
     description: "A big do about nothing.",
@@ -26,5 +26,3 @@ const testItems = [
 ];
 
 export { testItems };
-
-// export { testItem, testItem2, testItem3 };

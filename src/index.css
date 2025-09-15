@@ -1,8 +1,17 @@
 :root {
+
+  /* potential colour change  */
+  /* --main-background: #191e27;
+  /* --secondary-background: #283142; */
+  /* --secondary-background: rgb(67, 73, 87); */
+
+    /* --secondary-background:#36434A; */
+  
   --main-background:#1c262b;
-  --secondary-background:#36434A;
+  --secondary-background:#3c474d;
   --secondary-hover:#425057;
-  --yellow-hover:#E3A750;
+
+  --yellow:#E3A750;
 
   --main-text: #fafafa95;
 }
@@ -21,7 +30,7 @@ body {
 }
 
 .title > span {
-  color: var(--yellow-hover);
+  color: var(--yellow);
   padding-right: 8px;
   font-weight: 600;
 }

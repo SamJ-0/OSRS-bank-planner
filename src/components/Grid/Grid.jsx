@@ -1,5 +1,4 @@
 import GridTile from "./GridTile";
-// import {testItem, testItem2, testItem3} from "../assets/TestData.js"
 import "./Grid.css"
 import { testItems } from "../../assets/TestData";
 
