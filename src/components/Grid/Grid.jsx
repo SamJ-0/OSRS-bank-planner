@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import GridTile from "./GridTile";
 import "./Grid.css"
-import { testItems } from "../../assets/TestData";
 
 function Grid({height, width, bankSlots, dropDownValue}) {
 const initialSlots = Array.from({length: bankSlots}, (v, i) => ({
@@ -33,7 +32,7 @@ useEffect(() => {
     
 
 const displayGrid = currentSlots.map((slot) => {
-    return <GridTile slot={slot} key={slot.id} dropDownValue={dropDownValue}/>
+    return <GridTile slot={slot} key={slot.id}/>
 });
     
     return (

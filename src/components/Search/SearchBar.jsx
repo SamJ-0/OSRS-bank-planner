@@ -1,6 +1,4 @@
 import { Search } from "lucide-react";
-import { testItems } from "../../assets/TestData";
-import { useState } from "react";
 import "./Search.css";
 
 function SearchBar({ setSearchValue }) {

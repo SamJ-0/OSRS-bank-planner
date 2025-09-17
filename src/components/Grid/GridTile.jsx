@@ -1,7 +1,7 @@
 import "./Grid.css";
 import { X } from "lucide-react";
 
-function GridTile({ slot, dropDownValue}) {
+function GridTile({ slot }) {
 
   return (
 
