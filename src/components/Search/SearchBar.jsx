@@ -20,15 +20,3 @@ function SearchBar({ setSearchValue }) {
 }
 
 export default SearchBar
-
-//    <>
-//         <div className="searchContainer">
-//             <div className="searchWrapper">
-//             <input className="searchBar" onChange={handleChange} onFocus={handleOnFocus} onBlur={handleOnBlur} type="text" placeholder="Search items..."/>
-//             <div className="searchBtn"><Search color={"#fafafa70"} size={"22px"}/></div>
-//             {isFocused ? <SearchDropdown names={filteredResults} search={currentValue}/>
-//             :
-//             null }
-//             </div>
-//         </div>
-//         </>

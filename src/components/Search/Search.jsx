@@ -3,7 +3,7 @@ import SearchBar from "./SearchBar";
 import SearchDropdown from "./SearchDropDown";
 import { testItems } from "../../assets/TestData";
 
-function Search() {
+function Search( {setDropDownValue} ) {
     const [searchValue, setSearchValue] = useState("");
     const [isFocused, setIsFocused] = useState(false);
 
@@ -22,7 +22,7 @@ function Search() {
  return (
     <div className="searchContainer" onFocus={handleOnFocus} onBlur={handleOnBlur}>
         <SearchBar setSearchValue={setSearchValue}/>
-       {isFocused && <SearchDropdown searchValue = {searchValue} searchResults={searchResults}/>} 
+       {isFocused && <SearchDropdown searchValue = {searchValue} searchResults={searchResults} setDropDownValue={setDropDownValue}/>} 
     </div>
  );
 }
