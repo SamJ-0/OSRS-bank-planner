@@ -7,7 +7,7 @@ function App() {
     const [dropDownValue, setDropDownValue] = useState("");
 
     
-const isAddItemComplete = (value) => {
+const onItemAdded = (value) => {
     if(value === true) {
       setSearchValue("");
       setDropDownValue("");
@@ -23,7 +23,7 @@ const isAddItemComplete = (value) => {
       <Search setDropDownValue={setDropDownValue} searchValue={searchValue} setSearchValue={setSearchValue}/>
     </section>
     <section className="gridArea">
-      <Grid height="100px" width="90px" bankSlots={56} dropDownValue={dropDownValue} isAddItemComplete={isAddItemComplete}/>
+      <Grid height="100px" width="90px" bankSlots={56} dropDownValue={dropDownValue} onItemAdded={onItemAdded}/>
     </section>
     <section><footer></footer></section>
     </>

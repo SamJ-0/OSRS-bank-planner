@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import GridTile from "./GridTile";
 import "./Grid.css"
 
-function Grid({height, width, bankSlots, dropDownValue, isAddItemComplete}) {
+function Grid({height, width, bankSlots, dropDownValue, onItemAdded}) {
 const initialSlots = Array.from({length: bankSlots}, (v, i) => ({
     id: `slot-${i}`,
     item: null,
@@ -29,7 +29,7 @@ useEffect(() => {
     });
 
     setCurrentSlots(newSlots);
-    isAddItemComplete(true);
+    onItemAdded(true);
 },[dropDownValue]);  
 
    const removeItem = (itemId) => {
