@@ -20,7 +20,7 @@ const isAddItemComplete = (value) => {
         <h1 className="title"><span>OSRS</span>Bank planner</h1>
       </div>
     <section className="searchArea">
-      <Search setDropDownValue={setDropDownValue}/>
+      <Search setDropDownValue={setDropDownValue} searchValue={searchValue} setSearchValue={setSearchValue}/>
     </section>
     <section className="gridArea">
       <Grid height="100px" width="90px" bankSlots={56} dropDownValue={dropDownValue} isAddItemComplete={isAddItemComplete}/>
