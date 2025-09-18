@@ -10,15 +10,15 @@ const initialSlots = Array.from({length: bankSlots}, (v, i) => ({
     width: width
 }));
 
-const [currentSlots, setCurrentSlots] = useState(initialSlots);
+const [currentSlots, setCurrentSlots] = useState(() => initialSlots);
 
 useEffect(() => {
-    const findEmptySlot = currentSlots.findIndex((grid) => grid.item === null);
+    const findEmptySlotIndex = currentSlots.findIndex((grid) => grid.item === null);
 
-    const updateGrid = currentSlots.map((obj, index) => {
-        const emptySlot = index === findEmptySlot;
+    const newSlots = currentSlots.map((obj, index) => {
+        const matchEmptySlot = index === findEmptySlotIndex;
 
-        if(emptySlot && dropDownValue != "") {
+        if(matchEmptySlot && dropDownValue != "") {
             return {
                 ...obj,
                 item: dropDownValue,
@@ -26,19 +26,19 @@ useEffect(() => {
         } else {
             return obj;
         }
-    });
-    setCurrentSlots(updateGrid);
-},[dropDownValue]);
-    
+    })
 
-const displayGrid = currentSlots.map((slot) => {
-    return <GridTile slot={slot} key={slot.id}/>
-});
+    setCurrentSlots(newSlots);
+},[dropDownValue]);  
     
     return (
         <div className="gridContainer">
             <div className="gridRow" style={{gridTemplateColumns:`repeat(${8}, ${width})`}}>
-                {displayGrid}
+
+                {currentSlots.map((slot) => {
+                    return <GridTile slot={slot} key={slot.id}/>
+                })}
+                
             </div>
         </div>
     );
