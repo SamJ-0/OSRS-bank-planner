@@ -1,10 +1,10 @@
 import "./Grid.css";
 import { X } from "lucide-react";
 
-function GridTile({ slot }) {
+function GridTile({ slot, removeItem }) {
 
   const handleClick = () => {
-    console.log(slot.id);
+    removeItem(slot.id);
   }
 
   return (

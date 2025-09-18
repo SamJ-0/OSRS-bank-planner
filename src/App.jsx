@@ -3,7 +3,16 @@ import Grid from "./components/Grid/Grid"
 import { useState } from "react";
 
 function App() {
+    const [searchValue, setSearchValue] = useState("");
     const [dropDownValue, setDropDownValue] = useState("");
+
+    
+const isAddItemComplete = (value) => {
+    if(value === true) {
+      setSearchValue("");
+      setDropDownValue("");
+    }
+}
 
   return (
     <>
@@ -14,7 +23,7 @@ function App() {
       <Search setDropDownValue={setDropDownValue}/>
     </section>
     <section className="gridArea">
-      <Grid height="100px" width="90px" bankSlots={56} dropDownValue={dropDownValue}/>
+      <Grid height="100px" width="90px" bankSlots={56} dropDownValue={dropDownValue} isAddItemComplete={isAddItemComplete}/>
     </section>
     <section><footer></footer></section>
     </>

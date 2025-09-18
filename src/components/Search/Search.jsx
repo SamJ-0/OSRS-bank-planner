@@ -3,8 +3,7 @@ import SearchBar from "./SearchBar";
 import SearchDropdown from "./SearchDropDown";
 import { testItems } from "../../assets/TestData";
 
-function Search( {setDropDownValue} ) {
-    const [searchValue, setSearchValue] = useState("");
+function Search( {setDropDownValue, searchValue, setSearchValue} ) {
     const [isFocused, setIsFocused] = useState(false);
 
     const searchResults = testItems.filter((itemName) => {
