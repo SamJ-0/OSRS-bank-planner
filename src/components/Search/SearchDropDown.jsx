@@ -7,17 +7,15 @@ function SearchDropdown({searchValue, searchResults, setDropDownValue}) {
     const handleClick = (item) => {
         setDropDownValue(item);
     };
-
-    const itemNames = searchResults.map((item) => {
-        return <li key={item.id} onMouseDown={handleMouseDown} onClick={() => handleClick(item)}>{item.name}</li>;
-    });
-
+    
 return (
 <>
     {searchValue != "" ? 
     <div className="dropDownContainer">
     <ul className="dropDownList">
-        {itemNames}
+        {searchResults.map((item) => {
+        return <li key={item.id} onMouseDown={handleMouseDown} onClick={() => handleClick(item)}>{item.name}</li>;
+    })}
     </ul>
     </div>
     : 
