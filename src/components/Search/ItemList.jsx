@@ -20,14 +20,9 @@ function ItemList() {
     } catch (error) {
         console.log(error);
     }
-
 }
     return (
         <>
-        <div id={items[8].id} className="itemContainer">
-        <img src={items[8].icon} alt="Abyssal whip icon" />
-        <p>{items[8].name}</p>
-        </div>
         </>
     );
 }

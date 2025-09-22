@@ -1,6 +1,7 @@
 import Search from "./components/Search/Search"
 import Grid from "./components/Grid/Grid"
 import { useState } from "react";
+import ItemList from "./components/Search/ItemList";
 
 function App() {
     const [searchValue, setSearchValue] = useState("");
@@ -20,6 +21,7 @@ const onItemAdded = (value) => {
         <h1 className="title"><span>OSRS</span>Bank planner</h1>
       </div>
     <section className="searchArea">
+      <ItemList/>
       <Search setDropDownValue={setDropDownValue} searchValue={searchValue} setSearchValue={setSearchValue}/>
     </section>
     <section className="gridArea">

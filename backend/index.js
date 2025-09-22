@@ -1,4 +1,5 @@
 import express, { response } from "express";
+import { writeFile } from "fs";
 import cors from "cors";
 
 const app = express();
@@ -23,7 +24,6 @@ async function fetchData() {
     }
 
     const data = await response.json();
-    console.log(data);
     return data;
   } catch (error) {
     console.log(error);
@@ -32,5 +32,15 @@ async function fetchData() {
 
 app.get("/items", async (req, res) => {
   const data = await fetchData();
+
+  const jsonData = JSON.stringify(data, null, 2);
+
+  writeFile("itemStorage.json", jsonData, "utf8", (error) => {
+    if (error) {
+      console.log("Error writing to file", error);
+    } else {
+      console.log("Data written to file");
+    }
+  });
   res.send(data);
 });
