@@ -23,6 +23,7 @@ function ItemList() {
 }
     return (
         <>
+        {console.log(items)}
         </>
     );
 }

@@ -1,22 +1,13 @@
-import express, { response } from "express";
-import { writeFile } from "fs";
-import cors from "cors";
+import express from "express";
+import { fileOperations } from "./storage.js";
 
 const app = express();
-const port = 3000;
-
-app.use(cors());
-
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}!`);
-});
-
-fetchData();
+const port = process.env.PORT || 3000;
 
 async function fetchData() {
-  const response = await fetch(
-    "https://secure.runescape.com/m=itemdb_oldschool/api/catalogue/items.json?category=1&alpha=a&page=1"
-  );
+  const api_url =
+    "https://secure.runescape.com/m=itemdb_oldschool/api/catalogue/items.json?category=1&alpha=a&page=1";
+  const response = await fetch(api_url);
 
   try {
     if (!response.ok) {
@@ -24,23 +15,19 @@ async function fetchData() {
     }
 
     const data = await response.json();
+    console.log(data);
     return data;
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 }
 
-app.get("/items", async (req, res) => {
-  const data = await fetchData();
+// fetchData();
 
-  const jsonData = JSON.stringify(data, null, 2);
+// readFromFile();
 
-  writeFile("itemStorage.json", jsonData, "utf8", (error) => {
-    if (error) {
-      console.log("Error writing to file", error);
-    } else {
-      console.log("Data written to file");
-    }
-  });
-  res.send(data);
+// getFileStats();
+
+app.listen(port, () => {
+  console.log(`App listening on port ${port}!`);
 });
