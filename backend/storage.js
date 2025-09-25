@@ -5,74 +5,47 @@ import { fileURLToPath } from "node:url";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+const readFromFile = "Abyssal whip";
 
 const fileOperations = async () => {
-  const currentDate = Date.now();
+  const filePath = path.join(__dirname, "item_db", "itemStoragePromise.json");
+
   try {
-    const getFileStats = await stat(
-      path.join(__dirname, "item_db", "itemStorage.json")
-    );
-    const fileLastModified = getFileStats.mtime;
+    const currentDate = Date.now();
+    const apiRefreshInterval = 2;
+    const dayInMs = 86400000;
+    let getFileStats;
+    let fileLastModified;
+    let fileSize;
+    let fileAgeInMs;
+    let timeDifference;
 
-    const timeElapsed = currentDate - fileLastModified;
-
-    console.log(timeElapsed);
-
-    const readFromFile = await readFile(
-      path.join(__dirname, "item_db", "itemStorage.json"),
-      "utf8"
-    );
-    console.log(readFromFile);
-
-    if (
-      !existsSync(path.join(__dirname, "item_db", "itemStoragePromise.json"))
-    ) {
-      const writeToFile = await writeFile(
-        path.join(__dirname, "item_db", "itemStoragePromise.json"),
-        readFromFile
-      );
+    if (!existsSync(filePath)) {
+      const writeToFile = await writeFile(filePath, readFromFile);
+      console.log("File written");
     } else {
-      console.log("The file exists");
+      getFileStats = await stat(filePath);
+      fileLastModified = getFileStats.mtime;
+      fileSize = getFileStats.size;
+      fileAgeInMs = currentDate - fileLastModified;
+      timeDifference = fileAgeInMs / dayInMs;
+    }
+
+    if (timeDifference < apiRefreshInterval) {
+      const readFromFile = await readFile(filePath, "utf8");
+      console.log(readFromFile);
+    } else if (timeDifference >= apiRefreshInterval || fileSize === 0) {
+      await writeFile(filePath, readFromFile);
+      console.log("API called and file written");
+    } else {
+      console.log("Issue with time difference");
     }
   } catch (error) {
     console.error(error);
   }
-  console.log(currentDate);
 };
 
 fileOperations();
-
-// const getFileStats = () => {
-//   stat(path.join(__dirname, "item_db", "itemStorage.json"), (error, stats) => {
-//     if (error) {
-//       console.error(error);
-//     } else {
-//       console.log("Stats object for: example_file.txt");
-//       console.log(stats);
-
-//       console.log("Path is file:", stats.isFile());
-//       console.log("File last modified:", stats.mtime);
-//     }
-//   });
-// };
-
-// const writeToFile = () => {
-//   writeFile(path.join(__dirname, "item_db", "itemStorage1.json"), "This is test data", (error) => {
-//   if (error) {
-//     throw error;
-//   }
-//   console.log("Write complete");
-// });
-// };
-
-// const readFromFile = () => {
-//   readFile(path.join(__dirname, "item_db", "itemStorage.json"), "utf8", (error, data) => {
-//     if (error) {
-//       throw error;
-//     }
-//     console.log(data);
-//   });
-// };
 
 process.on("uncaughtException", (error) => {
   console.error(`There was an uncaught error: ${error}`);
