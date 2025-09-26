@@ -16,14 +16,16 @@ function ItemList() {
         }
         const result = await response.json();
         setItems(result.items);
+        console.log(items);
 
     } catch (error) {
         console.log(error);
     }
 }
+console.log(callAPI());
     return (
         <>
-        {console.log(items)}
+        <div>This is from ItemList</div>
         </>
     );
 }

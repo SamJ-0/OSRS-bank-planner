@@ -2,13 +2,13 @@ import { existsSync } from "node:fs";
 import { writeFile, readFile, stat } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { fetchData } from "./index.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const readFromFile = "Abyssal whip";
 
 const fileOperations = async () => {
-  const filePath = path.join(__dirname, "item_db", "itemStoragePromise.json");
+  const filePath = path.join(__dirname, "item_db", "itemStorage.json");
 
   try {
     const currentDate = Date.now();
@@ -20,8 +20,12 @@ const fileOperations = async () => {
     let fileAgeInMs;
     let timeDifference;
 
+    let apiCall;
+    let readFileResults;
+
     if (!existsSync(filePath)) {
-      const writeToFile = await writeFile(filePath, readFromFile);
+      apiCall = JSON.stringify(await fetchData());
+      await writeFile(filePath, apiCall);
       console.log("File written");
     } else {
       getFileStats = await stat(filePath);
@@ -31,21 +35,16 @@ const fileOperations = async () => {
       timeDifference = fileAgeInMs / dayInMs;
     }
 
-    if (timeDifference < apiRefreshInterval) {
-      const readFromFile = await readFile(filePath, "utf8");
-      console.log(readFromFile);
-    } else if (timeDifference >= apiRefreshInterval || fileSize === 0) {
-      await writeFile(filePath, readFromFile);
-      console.log("API called and file written");
-    } else {
-      console.log("Issue with time difference");
+    if (timeDifference >= apiRefreshInterval || fileSize === 0) {
+      apiCall = JSON.stringify(await fetchData());
+      await writeFile(filePath, apiCall);
+    } else if (timeDifference < apiRefreshInterval) {
+      return (readFileResults = await readFile(filePath, "utf8"));
     }
   } catch (error) {
     console.error(error);
   }
 };
-
-fileOperations();
 
 process.on("uncaughtException", (error) => {
   console.error(`There was an uncaught error: ${error}`);

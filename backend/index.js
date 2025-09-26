@@ -15,19 +15,18 @@ async function fetchData() {
     }
 
     const data = await response.json();
-    console.log(data);
     return data;
   } catch (error) {
     console.error(error);
   }
 }
 
-// fetchData();
-
-// readFromFile();
-
-// getFileStats();
+app.get("/items", (req, res) => {
+  fileOperations();
+});
 
 app.listen(port, () => {
   console.log(`App listening on port ${port}!`);
 });
+
+export { fetchData };
