@@ -51,7 +51,7 @@
 
 .dropDownContainer {
   width: 18rem;
-  max-height: 12rem;
+  max-height: fit-content;
   color: #fafaface;
   font-weight: 300;
   background-color: var(--main-background);

@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 
-function ItemList() {
-    const [items, setItems] = useState([]);
+function ItemList({ setItems }) {
 
      useEffect(() => {
         callAPI();
@@ -16,16 +15,13 @@ function ItemList() {
         }
         const result = await response.json();
         setItems(result.items);
-        console.log(items);
 
     } catch (error) {
         console.log(error);
     }
 }
-console.log(callAPI());
     return (
         <>
-        <div>This is from ItemList</div>
         </>
     );
 }

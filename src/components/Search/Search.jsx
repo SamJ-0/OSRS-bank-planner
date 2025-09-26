@@ -1,12 +1,12 @@
 import { useState } from "react";
 import SearchBar from "./SearchBar";
 import SearchDropdown from "./SearchDropDown";
-import { testItems } from "../../assets/TestData";
+// import { testItems } from "../../assets/TestData";
 
-function Search( {setDropDownValue, searchValue, setSearchValue} ) {
+function Search( {setDropDownValue, searchValue, setSearchValue, items} ) {
     const [isFocused, setIsFocused] = useState(false);
 
-    const searchResults = testItems.filter((itemName) => {
+    const searchResults = items.filter((itemName) => {
        return itemName.name.toLowerCase().includes(searchValue.toLowerCase());
     });
 

@@ -1,8 +1,10 @@
 import express from "express";
 import { fileOperations } from "./storage.js";
+import cors from "cors";
 
 const app = express();
 const port = process.env.PORT || 3000;
+app.use(cors());
 
 async function fetchData() {
   const api_url =
@@ -21,8 +23,9 @@ async function fetchData() {
   }
 }
 
-app.get("/items", (req, res) => {
-  fileOperations();
+app.get("/items", async (req, res) => {
+  const data = await fileOperations();
+  res.send(data);
 });
 
 app.listen(port, () => {

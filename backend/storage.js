@@ -38,7 +38,9 @@ const fileOperations = async () => {
     if (timeDifference >= apiRefreshInterval || fileSize === 0) {
       apiCall = JSON.stringify(await fetchData());
       await writeFile(filePath, apiCall);
+      console.log("Api called and file written");
     } else if (timeDifference < apiRefreshInterval) {
+      console.log("File read");
       return (readFileResults = await readFile(filePath, "utf8"));
     }
   } catch (error) {
