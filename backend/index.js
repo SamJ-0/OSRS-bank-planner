@@ -7,17 +7,29 @@ const port = process.env.PORT || 3000;
 app.use(cors());
 
 async function fetchData() {
-  const api_url =
-    "https://secure.runescape.com/m=itemdb_oldschool/api/catalogue/items.json?category=1&alpha=a&page=1";
-  const response = await fetch(api_url);
+  const apiBaseUrl = `https://secure.runescape.com/m=itemdb_oldschool/api/catalogue/items.json?category=1`;
+  let alphaCategory = [];
+
+  for (let i = 97; i <= 122; i++) {
+    const apiAlpha = `&alpha=${String.fromCodePoint(i)}&page=1`;
+    alphaCategory.push(apiAlpha);
+  }
+
+  const responsePromise = alphaCategory.map((alphaCat) => {
+    fetch(apiBaseUrl + alphaCat);
+  });
 
   try {
-    if (!response.ok) {
+    if (!responseData.ok) {
       throw new Error("Could not fetch resource");
     }
+    const responses = await Promise.all(responsePromise);
 
-    const data = await response.json();
-    return data;
+    const response = await Promise.all(
+      responses.map((response) => response.json())
+    );
+
+    return response;
   } catch (error) {
     console.error(error);
   }

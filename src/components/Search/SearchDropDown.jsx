@@ -13,7 +13,7 @@ return (
     {searchValue != "" ? 
     <div className="dropDownContainer">
     <ul className="dropDownList">
-        {searchResults.slice(0,6).map((item) => {
+        {searchResults.slice(0,10).map((item) => {
         return <li key={item.id} onMouseDown={handleMouseDown} onClick={() => handleClick(item)}>{item.name}</li>;
     })}
     </ul>
