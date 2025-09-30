@@ -16,13 +16,14 @@ async function fetchData() {
   }
 
   const responsePromise = alphaCategory.map((alphaCat) => {
-    fetch(apiBaseUrl + alphaCat);
+    return fetch(apiBaseUrl + alphaCat);
   });
 
   try {
-    if (!responseData.ok) {
+    if (!responsePromise.ok) {
       throw new Error("Could not fetch resource");
     }
+
     const responses = await Promise.all(responsePromise);
 
     const response = await Promise.all(
