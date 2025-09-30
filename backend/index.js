@@ -10,7 +10,7 @@ async function fetchData() {
   const apiBaseUrl = `https://secure.runescape.com/m=itemdb_oldschool/api/catalogue/items.json?category=1`;
   let alphaCategory = [];
 
-  for (let i = 97; i <= 122; i++) {
+  for (let i = 97; i <= 105; i++) {
     const apiAlpha = `&alpha=${String.fromCodePoint(i)}&page=1`;
     alphaCategory.push(apiAlpha);
   }
@@ -20,17 +20,21 @@ async function fetchData() {
   });
 
   try {
-    if (!responsePromise.ok) {
-      throw new Error("Could not fetch resource");
-    }
-
     const responses = await Promise.all(responsePromise);
+
+    responses.forEach((obj) => {
+      if (!obj.ok) {
+        throw new Error("Could not fetch resource");
+      }
+    });
 
     const response = await Promise.all(
       responses.map((response) => response.json())
     );
 
-    return response;
+    const result = response.flatMap((obj) => obj.items);
+
+    return result;
   } catch (error) {
     console.error(error);
   }

@@ -14,7 +14,7 @@ function ItemList({ setItems }) {
             throw new Error("Couldn't fetch resource");
         }
         const result = await response.json();
-        setItems(result.items);
+        setItems(result);
 
     } catch (error) {
         console.log(error);

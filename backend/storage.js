@@ -41,7 +41,8 @@ const fileOperations = async () => {
       console.log("Api called and file written");
     } else if (timeDifference < apiRefreshInterval) {
       console.log("File read");
-      return (readFileResults = await readFile(filePath, "utf8"));
+      readFileResults = await readFile(filePath, "utf8");
+      return readFileResults;
     }
   } catch (error) {
     console.error(error);
